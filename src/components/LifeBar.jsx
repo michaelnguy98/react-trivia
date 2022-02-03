@@ -1,7 +1,14 @@
 import React from "react";
 import Heart from "./Heart";
 
-function LifeBar(props) {
+/**
+ * Returns the component which tells the player how many lives they have left in
+ * the current game.
+ *
+ * @param {*} props The necessary properties passed from parent components.
+ * @returns {JSX.Element} The LifeBar component.
+ */
+export default function LifeBar(props) {
   return (
     <div className="life-bar">
       <Heart />
@@ -10,5 +17,3 @@ function LifeBar(props) {
     </div>
   );
 }
-
-export default LifeBar;

@@ -1,5 +1,6 @@
 import React from "react";
 import AnswerList from "./AnswerList";
+import LifeBar from "./LifeBar";
 
 /**
  * Returns the component which holds all relevant components that are required
@@ -12,6 +13,7 @@ import AnswerList from "./AnswerList";
 export default function Board(props) {
   return (
     <main className="board">
+      <LifeBar />
       <AnswerList />
     </main>
   );
