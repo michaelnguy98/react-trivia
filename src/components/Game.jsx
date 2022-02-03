@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Board from "./Board";
+import { getQuestion } from "../api/OpenTriviaAPI";
 
 /**
  * Returns the component that handles and stores the current state of the game.
@@ -9,6 +10,18 @@ import Board from "./Board";
  * @returns {JSX.Element} The Game component.
  */
 export default function Game() {
+
+  // Get the question, answer, and incorrect answers
+  useEffect(() => {
+    getQuestion()
+      .then(data => {
+        console.log(data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }, []);
+
   return (
     <>
       <Board />
