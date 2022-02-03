@@ -1,6 +1,13 @@
 import React from "react";
 
-function Question(props) {
+/**
+ * Returns a component that displays the current question the player has to
+ * answer to.
+ *
+ * @param {*} props The necessary properties passed from parent components.
+ * @returns {JSX.Element} The Question component.
+ */
+export default function Question(props) {
   return (
     <div className="question">
       <p>
@@ -9,5 +16,3 @@ function Question(props) {
     </div>
   );
 }
-
-export default Question;

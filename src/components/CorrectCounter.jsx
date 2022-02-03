@@ -9,8 +9,10 @@ import React from "react";
  */
 export default function CorrectCounter(props) {
   return (
-    <p className="correct-counter">
-      N
-    </p>
+    <div className="correct-counter">
+      <p>
+        N
+      </p>
+    </div>
   );
 }
