@@ -1,13 +1,16 @@
 import React from "react";
 
-function CorrectCounter(props) {
+/**
+ * Returns the component that keeps track of the number of questions the player
+ * answered correctly.
+ *
+ * @param {*} props The necessary properties passed from parent components.
+ * @returns {JSX.Element} The CorrectCounter component.
+ */
+export default function CorrectCounter(props) {
   return (
-    <div className="correct-counter">
-      <p>
-        N
-      </p>
-    </div>
+    <p className="correct-counter">
+      N
+    </p>
   );
 }
-
-export default CorrectCounter;
