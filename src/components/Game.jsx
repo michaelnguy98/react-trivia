@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Board from "./Board";
 import { getQuestion } from "../api/OpenTriviaAPI";
 
@@ -10,21 +10,24 @@ import { getQuestion } from "../api/OpenTriviaAPI";
  * @returns {JSX.Element} The Game component.
  */
 export default function Game() {
+  const [question, setQuestion] = useState("");
 
   // Get the question, answer, and incorrect answers
   useEffect(() => {
     getQuestion()
       .then(data => {
         console.log(data);
+        setQuestion(data.results[0].question);
       })
       .catch(err => {
         console.log(err);
+        setQuestion("");
       });
   }, []);
 
   return (
     <>
-      <Board />
+      <Board question={question} />
     </>
   );
 }
