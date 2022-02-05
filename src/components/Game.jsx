@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Board from "./Board";
 import { getQuestion } from "../api/OpenTriviaAPI";
+var he = require("he");
 
 /**
  * Returns the component that handles and stores the current state of the game.
@@ -19,15 +20,16 @@ export default function Game() {
     getQuestion()
       .then(data => {
         console.log(data);
-        setQuestion(data.results[0].question);
+        setQuestion(he.decode(data.results[0].question));
 
-        let correct_answer = data.results[0].correct_answer;
+        let correct_answer = he.decode(data.results[0].correct_answer);
         setCorrectAnswer(correct_answer);
 
-        let possible_answers = data.results[0].incorrect_answers;
-        possible_answers.push(correct_answer);
-        possible_answers = shuffle(possible_answers);
-        setAnswers(possible_answers);
+        const possible_answers = data.results[0].incorrect_answers;
+        let formatted_answers = possible_answers.map(answer => {return he.decode(answer)});
+        formatted_answers.push(correct_answer);
+        formatted_answers = shuffle(formatted_answers);
+        setAnswers(formatted_answers);
       })
       .catch(err => {
         console.log(err);
