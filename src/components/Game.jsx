@@ -26,6 +26,7 @@ export default function Game() {
 
         let possible_answers = data.results[0].incorrect_answers;
         possible_answers.push(correct_answer);
+        possible_answers = shuffle(possible_answers);
         setAnswers(possible_answers);
       })
       .catch(err => {
@@ -38,7 +39,7 @@ export default function Game() {
 
   return (
     <>
-      <Board question={question} />
+      <Board question={question} answers={answers} />
     </>
   );
 }

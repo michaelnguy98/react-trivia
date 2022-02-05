@@ -11,10 +11,11 @@ import Answer from "./Answer";
 export default function AnswerList(props) {
   return (
     <ul className="answer-list">
-      <Answer />
-      <Answer />
-      <Answer />
-      <Answer />
+      {
+        props.answers.map(answer => {
+          return <Answer key={answer} text={answer} />
+        })
+      }
     </ul>
   );
 }

@@ -18,7 +18,7 @@ export default function Board(props) {
       <LifeBar />
       <CorrectCounter />
       <Question question={props.question} />
-      <AnswerList />
+      <AnswerList answers={props.answers} />
     </main>
   );
 }

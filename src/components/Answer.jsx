@@ -11,7 +11,7 @@ export default function Answer(props) {
   return (
     <li className="answer">
       <p>
-        This is an answer.
+        {props.text}
       </p>
     </li>
   );
