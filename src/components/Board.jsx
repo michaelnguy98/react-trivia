@@ -1,7 +1,7 @@
 import React from "react";
 import AnswerList from "./AnswerList";
 import LifeBar from "./LifeBar";
-import CorrectCounter from "./CorrectCounter";
+import Score from "./Score";
 import Question from "./Question";
 
 /**
@@ -16,7 +16,7 @@ export default function Board(props) {
   return (
     <main className="board">
       <LifeBar />
-      <CorrectCounter />
+      <Score score={props.score} />
       <Question question={props.question} />
       <AnswerList answers={props.answers} />
     </main>

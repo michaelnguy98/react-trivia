@@ -14,6 +14,7 @@ export default function Game() {
   const [question, setQuestion] = useState("");
   const [correctAnswer, setCorrectAnswer] = useState(null);
   const [answers, setAnswers] = useState([]);
+  const [score, setScore] = useState(0);
 
   // Get the question, answer, and incorrect answers
   useEffect(() => {
@@ -41,7 +42,7 @@ export default function Game() {
 
   return (
     <>
-      <Board question={question} answers={answers} />
+      <Board question={question} answers={answers} score={score} />
     </>
   );
 }

@@ -5,13 +5,13 @@ import React from "react";
  * answered correctly.
  *
  * @param {*} props The necessary properties passed from parent components.
- * @returns {JSX.Element} The CorrectCounter component.
+ * @returns {JSX.Element} The Score component.
  */
-export default function CorrectCounter(props) {
+export default function Score(props) {
   return (
     <div className="correct-counter">
       <p>
-        N
+        {props.score}
       </p>
     </div>
   );
