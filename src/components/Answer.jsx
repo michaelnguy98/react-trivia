@@ -8,8 +8,18 @@ import React from "react";
  * @returns {JSX.Element} An Answer component.
  */
 export default function Answer(props) {
+
+  /**
+   * Handles the behavior when the user clicks on an Answer.
+   * @param {Event} event The event triggered from a click.
+   */
+  function handleClick(event) {
+    event.preventDefault();
+    props.handleChoice(props.text);
+  }
+
   return (
-    <li className="answer">
+    <li className="answer" onClick={handleClick}>
       <p>
         {props.text}
       </p>

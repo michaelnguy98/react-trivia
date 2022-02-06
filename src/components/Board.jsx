@@ -18,7 +18,7 @@ export default function Board(props) {
       <LifeBar />
       <Score score={props.score} />
       <Question question={props.question} />
-      <AnswerList answers={props.answers} />
+      <AnswerList answers={props.answers} handleChoice={props.handleChoice} />
     </main>
   );
 }

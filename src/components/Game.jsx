@@ -15,6 +15,18 @@ export default function Game() {
   const [correctAnswer, setCorrectAnswer] = useState(null);
   const [answers, setAnswers] = useState([]);
   const [score, setScore] = useState(0);
+  const [lives, setLives] = useState(3);
+
+  /**
+   * Handles the behavior of the game when the user chooses an answer from the
+   * AnswerList.
+   * @param {string} chosenAnswer The answer the user chose.
+   */
+  function handleChoice(chosenAnswer) {
+    if (chosenAnswer === correctAnswer) {
+      setScore(score + 1);
+    }
+  }
 
   // Get the question, answer, and incorrect answers
   useEffect(() => {
@@ -38,11 +50,16 @@ export default function Game() {
         setCorrectAnswer(null);
         setAnswers([]);
       });
-  }, []);
+  }, [score]);
 
   return (
     <>
-      <Board question={question} answers={answers} score={score} />
+      <Board
+        question={question}
+        answers={answers}
+        score={score}
+        handleChoice={handleChoice}
+      />
     </>
   );
 }

@@ -13,7 +13,7 @@ export default function AnswerList(props) {
     <ul className="answer-list">
       {
         props.answers.map(answer => {
-          return <Answer key={answer} text={answer} />
+          return <Answer key={answer} text={answer} handleChoice={props.handleChoice} />
         })
       }
     </ul>
