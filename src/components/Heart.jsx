@@ -10,6 +10,6 @@ import React from "react";
  */
 export default function Heart(props) {
   return (
-    <img className="heart" src="" alt="heart" />
+    <img className="heart" src="/images/heart.svg" alt="heart" />
   );
 }
