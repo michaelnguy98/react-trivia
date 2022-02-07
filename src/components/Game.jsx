@@ -52,7 +52,7 @@ export default function Game() {
         setCorrectAnswer(null);
         setAnswers([]);
       });
-  }, [score]);
+  }, [score, lives]);
 
   return (
     <>

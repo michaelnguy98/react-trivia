@@ -15,13 +15,11 @@ export default function Answer(props) {
    */
   function handleClick(event) {
     event.preventDefault();
-    if (props.active) {
-      props.handleChoice(props.text);
-    }
+    props.handleChoice(props.text);
   }
 
   return (
-    <li className="answer" onClick={handleClick}>
+    <li className="answer" onClick={props.active ? handleClick : null}>
       <p>
         {props.text}
       </p>
