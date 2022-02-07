@@ -9,11 +9,12 @@ import Answer from "./Answer";
  * @returns {JSX.Element} The AnswerList component.
  */
 export default function AnswerList(props) {
+
   return (
     <ul className="answer-list">
       {
         props.answers.map(answer => {
-          return <Answer key={answer} text={answer} handleChoice={props.handleChoice} />
+          return <Answer key={answer} text={answer} handleChoice={props.handleChoice} active={props.lives > 0} />
         })
       }
     </ul>

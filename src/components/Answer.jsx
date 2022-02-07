@@ -15,7 +15,9 @@ export default function Answer(props) {
    */
   function handleClick(event) {
     event.preventDefault();
-    props.handleChoice(props.text);
+    if (props.active) {
+      props.handleChoice(props.text);
+    }
   }
 
   return (
