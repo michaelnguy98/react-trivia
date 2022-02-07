@@ -9,7 +9,9 @@ import React from "react";
  * @returns {JSX.Element} A Heart component.
  */
 export default function Heart(props) {
+  const { active } = props;
+
   return (
-    <img className="heart" src="/images/heart.svg" alt="heart" />
+    <img className={`heart ${active ? "" : "inactive"}`} src="/images/heart.svg" alt="heart" />
   );
 }

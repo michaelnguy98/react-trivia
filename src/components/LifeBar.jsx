@@ -9,11 +9,13 @@ import Heart from "./Heart";
  * @returns {JSX.Element} The LifeBar component.
  */
 export default function LifeBar(props) {
+  const {lives} = props;
+
   return (
     <div className="life-bar">
-      <Heart />
-      <Heart />
-      <Heart />
+      <Heart active={lives >= 1} />
+      <Heart active={lives >= 2} />
+      <Heart active={lives >= 3} />
     </div>
   );
 }

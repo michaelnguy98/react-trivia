@@ -15,7 +15,7 @@ import Question from "./Question";
 export default function Board(props) {
   return (
     <main className="board">
-      <LifeBar />
+      <LifeBar lives={props.lives} />
       <Score score={props.score} />
       <Question question={props.question} />
       <AnswerList answers={props.answers} handleChoice={props.handleChoice} />

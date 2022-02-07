@@ -25,6 +25,8 @@ export default function Game() {
   function handleChoice(chosenAnswer) {
     if (chosenAnswer === correctAnswer) {
       setScore(score + 1);
+    } else {
+      setLives(lives - 1);
     }
   }
 
@@ -58,6 +60,7 @@ export default function Game() {
         question={question}
         answers={answers}
         score={score}
+        lives={lives}
         handleChoice={handleChoice}
       />
     </>
