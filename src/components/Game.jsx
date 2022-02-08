@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Board from "./Board";
+import StartScreen from "./StartScreen";
 import { getQuestion } from "../api/OpenTriviaAPI";
 var he = require("he");
 
@@ -11,11 +12,19 @@ var he = require("he");
  * @returns {JSX.Element} The Game component.
  */
 export default function Game() {
+  const [isStarted, setIsStarted] = useState(false);
   const [question, setQuestion] = useState("");
   const [correctAnswer, setCorrectAnswer] = useState(null);
   const [answers, setAnswers] = useState([]);
   const [score, setScore] = useState(0);
   const [lives, setLives] = useState(3);
+
+  /**
+   * Starts the game.
+   */
+  function startGame() {
+    setIsStarted(true);
+  }
 
   /**
    * Handles the behavior of the game when the user chooses an answer from the
@@ -56,13 +65,16 @@ export default function Game() {
 
   return (
     <>
-      <Board
-        question={question}
-        answers={answers}
-        score={score}
-        lives={lives}
-        handleChoice={handleChoice}
-      />
+      { !isStarted
+          ? <StartScreen startGame={startGame} />
+          : <Board
+              question={question}
+              answers={answers}
+              score={score}
+              lives={lives}
+              handleChoice={handleChoice}
+            />
+      }
     </>
   );
 }
