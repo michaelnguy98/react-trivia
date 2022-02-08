@@ -21,3 +21,7 @@ code {
   opacity: 0.4;
   width: 40px
 }
+
+.no-click {
+  pointer-events: none;
+}

@@ -11,7 +11,7 @@ import Answer from "./Answer";
 export default function AnswerList(props) {
 
   return (
-    <ul className="answer-list">
+    <ul className={`answer-list ${props.isLoading ? "no-click" : ""}`}>
       {
         props.answers.map(answer => {
           return <Answer key={answer} text={answer} handleChoice={props.handleChoice} active={props.lives > 0} />

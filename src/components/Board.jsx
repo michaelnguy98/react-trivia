@@ -22,7 +22,12 @@ export default function Board(props) {
         (props.lives > 0)
           ? <>
               <Question question={props.question} />
-              <AnswerList answers={props.answers} lives={props.lives} handleChoice={props.handleChoice} />
+              <AnswerList
+                answers={props.answers}
+                lives={props.lives}
+                handleChoice={props.handleChoice}
+                isLoading={props.isLoading}
+              />
             </>
           : <GameOver resetGame={props.resetGame} />
       }

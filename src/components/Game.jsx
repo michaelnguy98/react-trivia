@@ -18,6 +18,7 @@ export default function Game() {
   const [answers, setAnswers] = useState([]);
   const [score, setScore] = useState(0);
   const [lives, setLives] = useState(3);
+  const [isLoading, setIsLoading] = useState(false);
 
   /**
    * Starts the game.
@@ -43,6 +44,7 @@ export default function Game() {
    * @param {string} chosenAnswer The answer the user chose.
    */
   function handleChoice(chosenAnswer) {
+    setIsLoading(true);
     if (chosenAnswer === correctAnswer) {
       setScore(score + 1);
     } else {
@@ -65,12 +67,14 @@ export default function Game() {
         formatted_answers.push(correct_answer);
         formatted_answers = shuffle(formatted_answers);
         setAnswers(formatted_answers);
+        setIsLoading(false);
       })
       .catch(err => {
         console.log(err);
         setQuestion("");
         setCorrectAnswer(null);
         setAnswers([]);
+        setIsLoading(true);
       });
   }, [score, lives]);
 
@@ -85,6 +89,7 @@ export default function Game() {
               lives={lives}
               handleChoice={handleChoice}
               resetGame={resetGame}
+              isLoading={isLoading}
             />
       }
     </>
