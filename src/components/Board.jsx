@@ -3,6 +3,7 @@ import AnswerList from "./AnswerList";
 import LifeBar from "./LifeBar";
 import Score from "./Score";
 import Question from "./Question";
+import GameOver from "./GameOver";
 
 /**
  * Returns the component which holds all relevant components that are required
@@ -17,8 +18,14 @@ export default function Board(props) {
     <main className="board">
       <LifeBar lives={props.lives} />
       <Score score={props.score} />
-      <Question question={props.question} />
-      <AnswerList answers={props.answers} lives={props.lives} handleChoice={props.handleChoice} />
+      {
+        (props.lives > 0)
+          ? <>
+              <Question question={props.question} />
+              <AnswerList answers={props.answers} lives={props.lives} handleChoice={props.handleChoice} />
+            </>
+          : <GameOver resetGame={props.resetGame} />
+      }
     </main>
   );
 }

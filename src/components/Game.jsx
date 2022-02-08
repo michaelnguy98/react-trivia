@@ -27,6 +27,17 @@ export default function Game() {
   }
 
   /**
+   * Resets the game.
+   */
+  function resetGame() {
+    setQuestion("");
+    setCorrectAnswer(null);
+    setAnswers([]);
+    setScore(0);
+    setLives(3);
+  }
+
+  /**
    * Handles the behavior of the game when the user chooses an answer from the
    * AnswerList.
    * @param {string} chosenAnswer The answer the user chose.
@@ -73,6 +84,7 @@ export default function Game() {
               score={score}
               lives={lives}
               handleChoice={handleChoice}
+              resetGame={resetGame}
             />
       }
     </>
