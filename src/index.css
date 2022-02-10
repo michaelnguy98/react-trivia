@@ -87,6 +87,28 @@ a {
   width: 40px
 }
 
+/* Score */
+
+.score {
+  margin: 10px 0 50px;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--text-light);
+  transform: skewX(-12deg);
+  border-radius: var(--box-border-radius);
+  padding: 10px 24px;
+  text-align: left;
+}
+
+.score > p {
+  font-weight: 700;
+  font-size: 24px;
+}
+
 .no-click {
   pointer-events: none;
 }

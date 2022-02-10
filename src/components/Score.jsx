@@ -9,7 +9,7 @@ import React from "react";
  */
 export default function Score(props) {
   return (
-    <div className="correct-counter">
+    <div className="score">
       <p>
         {props.score}
       </p>
