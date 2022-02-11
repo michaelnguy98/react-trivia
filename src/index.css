@@ -144,3 +144,26 @@ a {
   font-size: 20px;
   color: var(--text-dark);
 }
+
+/* Game Over */
+
+.game-over {
+  margin: 0 20vw 0;
+  color: var(--text-light);
+  font-size: 2rem;
+  text-align: center;
+}
+
+.game-over > button {
+  border: none;
+  background: var(--primary);
+  color: var(--text-light);
+  padding: 10px 24px;
+  border-radius: var(--button-border-radius);
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-style: italic;
+  white-space: nowrap;
+  width: 140px;
+}

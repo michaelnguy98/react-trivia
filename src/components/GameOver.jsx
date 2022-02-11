@@ -8,7 +8,7 @@ import React from "react";
  */
 export default function GameOver(props) {
   return (
-    <div>
+    <div className="game-over">
       <p>
         Game Over
       </p>
