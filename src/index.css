@@ -109,6 +109,15 @@ a {
   font-size: 24px;
 }
 
+/* Question */
+
+.question {
+  margin: 0 20vw 0;
+  color: var(--text-light);
+  font-size: 2rem;
+  text-align: center;
+}
+
 .no-click {
   pointer-events: none;
 }
