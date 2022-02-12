@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 /**
  * Returns the component which is diplayed first before the game starts.
@@ -9,9 +10,13 @@ import React from "react";
 export default function StartScreen(props) {
   return (
     <div className="start-screen">
-      <button onClick={props.startGame}>
+      <motion.button
+        onClick={props.startGame}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+      >
         Start Game
-      </button>
+      </motion.button>
     </div>
   );
 }
