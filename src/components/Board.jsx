@@ -4,6 +4,7 @@ import LifeBar from "./LifeBar";
 import Score from "./Score";
 import Question from "./Question";
 import GameOver from "./GameOver";
+import { motion } from "framer-motion";
 
 /**
  * Returns the component which holds all relevant components that are required
@@ -15,7 +16,12 @@ import GameOver from "./GameOver";
  */
 export default function Board(props) {
   return (
-    <main className="board">
+    <motion.main
+      className="board"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+    >
       <LifeBar lives={props.lives} />
       <Score score={props.score} />
       {
@@ -31,6 +37,6 @@ export default function Board(props) {
             </>
           : <GameOver resetGame={props.resetGame} />
       }
-    </main>
+    </motion.main>
   );
 }
