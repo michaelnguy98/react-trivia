@@ -23,7 +23,7 @@ export default function Answer(props) {
     <motion.li
       className="answer"
       onClick={props.active ? handleClick : null}
-      key={props.text}
+      key={"answer: " + props.text}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
     >

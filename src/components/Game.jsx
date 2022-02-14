@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Board from "./Board";
 import StartScreen from "./StartScreen";
 import { getQuestion } from "../api/OpenTriviaAPI";
+import { AnimatePresence } from "framer-motion";
 var he = require("he");
 
 /**
@@ -56,7 +57,6 @@ export default function Game() {
   useEffect(() => {
     getQuestion()
       .then(data => {
-        console.log(data);
         setQuestion(he.decode(data.results[0].question));
 
         let correct_answer = he.decode(data.results[0].correct_answer);
@@ -80,18 +80,20 @@ export default function Game() {
 
   return (
     <>
-      { !isStarted
-          ? <StartScreen startGame={startGame} />
-          : <Board
-              question={question}
-              answers={answers}
-              score={score}
-              lives={lives}
-              handleChoice={handleChoice}
-              resetGame={resetGame}
-              isLoading={isLoading}
-            />
-      }
+      <AnimatePresence exitBeforeEnter>
+        { !isStarted
+            ? <StartScreen startGame={startGame} />
+            : <Board
+                question={question}
+                answers={answers}
+                score={score}
+                lives={lives}
+                handleChoice={handleChoice}
+                resetGame={resetGame}
+                isLoading={isLoading}
+              />
+        }
+      </AnimatePresence>
     </>
   );
 }

@@ -167,3 +167,7 @@ a {
   white-space: nowrap;
   width: 140px;
 }
+
+.game-over > button:hover {
+  filter: brightness(1.3);
+}

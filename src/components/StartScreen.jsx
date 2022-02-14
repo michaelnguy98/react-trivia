@@ -1,5 +1,5 @@
 import React from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 /**
  * Returns the component which is diplayed first before the game starts.
@@ -9,7 +9,6 @@ import { motion, AnimatePresence } from "framer-motion";
  */
 export default function StartScreen(props) {
   return (
-    <AnimatePresence>
       <motion.div
         className="start-screen"
         key="intro"
@@ -26,6 +25,5 @@ export default function StartScreen(props) {
           Start Game
         </motion.button>
       </motion.div>
-    </AnimatePresence>
   );
 }

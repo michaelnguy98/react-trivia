@@ -4,7 +4,7 @@ import LifeBar from "./LifeBar";
 import Score from "./Score";
 import Question from "./Question";
 import GameOver from "./GameOver";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 /**
  * Returns the component which holds all relevant components that are required
@@ -21,12 +21,19 @@ export default function Board(props) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
+      exit={{ opacity: 0 }}
     >
       <LifeBar lives={props.lives} />
       <Score score={props.score} />
+      <AnimatePresence exitBeforeEnter>
       {
         (props.lives > 0)
-          ? <>
+          ? <motion.div
+              key="information"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
               <Question question={props.question} />
               <AnswerList
                 answers={props.answers}
@@ -34,9 +41,10 @@ export default function Board(props) {
                 handleChoice={props.handleChoice}
                 isLoading={props.isLoading}
               />
-            </>
+            </motion.div>
           : <GameOver resetGame={props.resetGame} />
       }
+      </AnimatePresence>
     </motion.main>
   );
 }
