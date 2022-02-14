@@ -1,4 +1,5 @@
 import React from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 /**
  * Returns a component that displays the current question the player has to
@@ -9,10 +10,18 @@ import React from "react";
  */
 export default function Question(props) {
   return (
-    <div className="question">
-      <p>
-        {props.question}
-      </p>
-    </div>
+    <AnimatePresence exitBeforeEnter>
+      <motion.div
+        className="question"
+        key={props.question}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      >
+        <p>
+          {props.question}
+        </p>
+      </motion.div>
+    </AnimatePresence>
   );
 }

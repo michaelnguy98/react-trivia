@@ -12,6 +12,7 @@ export default function StartScreen(props) {
     <AnimatePresence>
       <motion.div
         className="start-screen"
+        key="intro"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
