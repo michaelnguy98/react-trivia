@@ -18,9 +18,9 @@ export default function Board(props) {
   return (
     <motion.main
       className="board"
+      key="gameboard"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
       exit={{ opacity: 0 }}
     >
       <LifeBar lives={props.lives} />
