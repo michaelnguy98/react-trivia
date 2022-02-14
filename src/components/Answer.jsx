@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 /**
  * Returns the component that represents a possible answer a player can pick to
@@ -19,10 +20,15 @@ export default function Answer(props) {
   }
 
   return (
-    <li className="answer" onClick={props.active ? handleClick : null}>
+    <motion.li
+      className="answer"
+      onClick={props.active ? handleClick : null}
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.9 }}
+    >
       <p>
         {props.text}
       </p>
-    </li>
+    </motion.li>
   );
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import Answer from "./Answer";
+import { animate } from "framer-motion";
 
 /**
  * Returns the component which contains all possible answers the player can
