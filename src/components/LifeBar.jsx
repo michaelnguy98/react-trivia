@@ -13,9 +13,9 @@ export default function LifeBar(props) {
 
   return (
     <div className="life-bar">
-      <Heart active={lives >= 1} />
-      <Heart active={lives >= 2} />
-      <Heart active={lives >= 3} />
+      <Heart isActive={lives >= 1} />
+      <Heart isActive={lives >= 2} />
+      <Heart isActive={lives >= 3} />
     </div>
   );
 }

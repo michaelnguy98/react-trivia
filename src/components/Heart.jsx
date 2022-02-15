@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 /**
  * Returns the component that represents one of the lives the player has in a
@@ -9,9 +10,20 @@ import React from "react";
  * @returns {JSX.Element} A Heart component.
  */
 export default function Heart(props) {
-  const { active } = props;
+  const { isActive } = props;
+
+  const variants = {
+    active: { opacity: 1, scale: 1 },
+    inactive: { opacity: 0.4, scale: 0.8 },
+  }
 
   return (
-    <img className={`heart ${active ? "" : "inactive"}`} src="/images/heart.svg" alt="heart" />
+    <motion.img
+      className="heart"
+      src="/images/heart.svg"
+      alt="heart"
+      animate={isActive ? "active" : "inactive"}
+      variants={variants}
+    />
   );
 }
