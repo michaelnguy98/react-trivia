@@ -35,11 +35,18 @@ a {
 /* StartScreen */
 
 .start-screen {
-  margin-top: 50vh;
+  margin-top: 40vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.start-screen > h2 {
+  color: var(--text-light);
+  font-style: italic;
+  text-transform: uppercase;
+  margin-bottom: 40px;
 }
 
 .start-screen > button {
