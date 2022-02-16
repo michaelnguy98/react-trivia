@@ -18,7 +18,7 @@ export default function StartScreen(props) {
       exit={{ opacity: 0 }}
     >
       <motion.h2>
-        Choose the correct answer to the question.
+        Choose the correct answer to the questions
       </motion.h2>
       <motion.button
         onClick={props.startGame}
