@@ -1,6 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
 
+const variants = {
+  active: { opacity: 1, scale: 1 },
+  inactive: { opacity: 0.4, scale: 0.8 },
+}
+
 /**
  * Returns the component that represents one of the lives the player has in a
  * game. The heart has two states, one where the player still has that life, and
@@ -11,11 +16,6 @@ import { motion } from "framer-motion";
  */
 export default function Heart(props) {
   const { isActive } = props;
-
-  const variants = {
-    active: { opacity: 1, scale: 1 },
-    inactive: { opacity: 0.4, scale: 0.8 },
-  }
 
   return (
     <motion.img

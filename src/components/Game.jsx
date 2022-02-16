@@ -43,13 +43,16 @@ export default function Game() {
    * Handles the behavior of the game when the user chooses an answer from the
    * AnswerList.
    * @param {string} chosenAnswer The answer the user chose.
+   * @returns {boolean} Whether or not the chosen answer was correct.
    */
   function handleChoice(chosenAnswer) {
     setIsLoading(true);
     if (chosenAnswer === correctAnswer) {
       setScore(score + 1);
+      return true;
     } else {
       setLives(lives - 1);
+      return false;
     }
   }
 

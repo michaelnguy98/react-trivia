@@ -32,7 +32,7 @@ export default function Board(props) {
               key="information"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
+              exit={{ opacity: 0, transition: { delay: 0.5 } }}
             >
               <Question question={props.question} />
               <AnswerList

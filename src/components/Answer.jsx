@@ -1,5 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
+
+const variants = {
+  correct: { backgroundColor: "#339966" },
+  incorrect: { backgroundColor: "#990000" }
+}
 
 /**
  * Returns the component that represents a possible answer a player can pick to
@@ -9,6 +14,7 @@ import { motion } from "framer-motion";
  * @returns {JSX.Element} An Answer component.
  */
 export default function Answer(props) {
+  const [correct, setCorrect] = useState(null);
 
   /**
    * Handles the behavior when the user clicks on an Answer.
@@ -16,7 +22,8 @@ export default function Answer(props) {
    */
   function handleClick(event) {
     event.preventDefault();
-    props.handleChoice(props.text);
+    const result = props.handleChoice(props.text);
+    setCorrect(result);
   }
 
   return (
@@ -24,6 +31,8 @@ export default function Answer(props) {
       className="answer"
       onClick={props.active ? handleClick : null}
       key={"answer: " + props.text}
+      animate={(correct !== null) && (correct ? "correct" : "incorrect")}
+      variants={variants}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
     >
