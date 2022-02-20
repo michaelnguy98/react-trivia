@@ -2,6 +2,8 @@
 
 A web trivia game implemented in React which uses questions from the Open Trivia Database API. Animated elements were built using Framer Motion.
 
+You can access the web app at [https://reacttrivia.app/](https://reacttrivia.app/).
+
 ## Usage
 
 ### Prerequisites
